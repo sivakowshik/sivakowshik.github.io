@@ -3,161 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Siva Kowshik Sripathi Panditharadyula | AI Engineer</title>
-<meta name="description" content="Siva Kowshik Sripathi Panditharadyula, AI Engineer in Melbourne building with Azure OpenAI, RAG, agents and Python.">
-<style>
-  :root{
-    --bg:#0b1220; --bg2:#0f1a2e; --card:#131f36; --line:#22314f;
-    --text:#e6edf7; --muted:#9fb0c8; --accent:#4cc9f0; --accent2:#7b61ff; --ok:#3ddc97; --warn:#ffb547;
-    --radius:16px; --max:1100px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-
-  /* nav */
-  nav{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;letter-spacing:.5px;color:var(--text)}
-  .logo span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  nav ul{display:flex;gap:22px;list-style:none}
-  nav ul a{color:var(--muted);font-size:.93rem;font-weight:500}
-  nav ul a:hover{color:var(--text);text-decoration:none}
-
-  /* hero */
-  .hero{position:relative;overflow:hidden;padding:110px 0 90px}
-  .hero::before{content:"";position:absolute;inset:-40% -10% auto auto;width:720px;height:720px;background:radial-gradient(circle,rgba(123,97,255,.35),transparent 65%);filter:blur(10px)}
-  .hero::after{content:"";position:absolute;left:-200px;bottom:-300px;width:640px;height:640px;background:radial-gradient(circle,rgba(76,201,240,.22),transparent 65%)}
-  .hero .wrap{position:relative;z-index:1}
-  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.85rem;background:rgba(19,31,54,.6)}
-  .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
-  h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;margin:22px 0 14px;font-weight:800;letter-spacing:-.5px}
-  .role{font-size:clamp(1.1rem,2.3vw,1.45rem);font-weight:600;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lead{max-width:680px;color:var(--muted);font-size:1.08rem;margin:18px 0 32px}
-  .btns{display:flex;flex-wrap:wrap;gap:14px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.97rem;border:1px solid var(--line);color:var(--text);background:var(--card);transition:transform .15s,border-color .15s}
-  .btn:hover{transform:translateY(-2px);border-color:var(--accent);text-decoration:none}
-  .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;color:#0b1220}
-  .loc{margin-top:28px;color:var(--muted);font-size:.92rem}
-
-  /* sections */
-  section{padding:80px 0;border-top:1px solid var(--line)}
-  section:nth-of-type(even){background:var(--bg2)}
-  .eyebrow{color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase}
-  h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:6px 0 30px;font-weight:800;letter-spacing:-.3px}
-  .about{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
-  .about p{color:var(--muted);margin-bottom:14px}
-  .about p strong{color:var(--text)}
-  .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-  .stat b{display:block;font-size:1.7rem;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .stat span{color:var(--muted);font-size:.9rem}
-
-  /* skills */
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-  .skill h3{font-size:1rem;margin-bottom:12px}
-  .tags{display:flex;flex-wrap:wrap;gap:8px}
-  .tag{font-size:.8rem;padding:4px 10px;border-radius:999px;background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.25);color:#bfe9f8}
-
-  /* projects */
-  .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-  .card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:transform .2s,border-color .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-4px);border-color:rgba(76,201,240,.5);box-shadow:0 12px 40px rgba(0,0,0,.35)}
-  .card .icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:linear-gradient(135deg,rgba(76,201,240,.2),rgba(123,97,255,.25));margin-bottom:16px}
-  .card h3{font-size:1.15rem;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:.95rem;margin-bottom:16px;flex:1}
-  .card ul{color:var(--muted);font-size:.9rem;margin:0 0 16px 18px}
-  .card .links{display:flex;gap:16px;margin-top:16px;font-weight:600;font-size:.92rem}
-  .badge{position:absolute;top:22px;right:22px;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px}
-  .badge.soon{background:rgba(255,181,71,.12);color:var(--warn);border:1px solid rgba(255,181,71,.35)}
-  .badge.wip{background:rgba(61,220,151,.1);color:var(--ok);border:1px solid rgba(61,220,151,.35)}
-  .badge.venture{background:rgba(123,97,255,.15);color:#c3b6ff;border:1px solid rgba(123,97,255,.4)}
-
-  /* timeline */
-  .timeline{position:relative;margin-left:10px;padding-left:34px;border-left:2px solid var(--line)}
-  .item{position:relative;margin-bottom:34px}
-  .item::before{content:"";position:absolute;left:-43px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
-  .item.edu::before{border-color:var(--accent2)}
-  .item .when{color:var(--accent);font-size:.85rem;font-weight:700}
-  .item.edu .when{color:#b3a6ff}
-  .item h3{font-size:1.08rem;margin:2px 0}
-  .item .org{color:var(--text);opacity:.85;font-size:.95rem}
-  .item p{color:var(--muted);font-size:.93rem;margin-top:6px;max-width:760px}
-
-  /* certs */
-  .certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-  .cert{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;gap:14px;align-items:flex-start}
-  .cert .ic{font-size:1.5rem}
-  .cert h3{font-size:.98rem}
-  .cert span{color:var(--muted);font-size:.85rem}
-  .cert.progress{border-style:dashed;border-color:rgba(255,181,71,.5)}
-  .cert.progress span{color:var(--warn)}
-
-  /* contact */
-  .contact{text-align:center}
-  .contact p{color:var(--muted);max-width:620px;margin:0 auto 28px}
-  .contact .btns{justify-content:center}
-  footer{padding:30px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
-
-  @media (max-width:820px){
-    nav ul{display:none}
-    .about{grid-template-columns:1fr}
-    .hero{padding:80px 0 60px}
-    .projects{grid-template-columns:1fr}
-  }
-</style>
+<title>Siva Kowshik Sripathi Panditharadyula | AI Engineer, Melbourne</title>
+<meta name="description" content="Siva Kowshik Sripathi Panditharadyula, AI engineer in Melbourne building with Azure OpenAI, Microsoft Foundry, RAG, agents and Python.">
+<meta name="theme-color" content="#08111f">
+<meta property="og:title" content="Siva Kowshik Sripathi Panditharadyula | AI Engineer, Melbourne">
+<meta property="og:description" content="Siva Kowshik Sripathi Panditharadyula, AI engineer in Melbourne building with Azure OpenAI, Microsoft Foundry, RAG, agents and Python.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%234cc9f0'/%3E%3Cstop offset='1' stop-color='%237b61ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='900' font-size='26' text-anchor='middle' fill='%2308111f'%3ESK%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-
-<nav>
+<body id="top">
+<nav class="nav" aria-label="Main">
   <div class="wrap">
-    <a class="logo" href="#top">SK<span>.ai</span></a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a class="logo" href="#top"><span class="mark">SK</span><span>Siva Kowshik</span></a>
+    <ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#certifications">Certifications</a></li><li><a class="cta" href="#contact">Contact</a></li></ul>
+    <a class="burger" href="#menu" aria-label="Open menu"><span></span></a>
   </div>
 </nav>
+<div class="mobile-menu" id="menu" role="dialog" aria-label="Menu">
+  <div class="top"><a class="logo" href="#top"><span class="mark">SK</span><span>Siva Kowshik</span></a>
+  <a class="close" href="#_" aria-label="Close menu">&times;</a></div>
+  <ul><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#certifications">Certifications</a></li><li><a href="#contact">Contact</a></li><li><a href="resume.pdf">Resume (PDF)</a></li></ul>
+</div>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <span class="pill"><span class="dot"></span>Open to AI engineering roles and internships · Melbourne</span>
-    <h1>Siva Kowshik<br>Sripathi Panditharadyula</h1>
-    <div class="role">AI Engineer | Azure OpenAI · RAG · Agents · Python</div>
-    <p class="lead">I build practical AI on Azure: retrieval-augmented chatbots, agents and Python back ends, shaped by about four years running high-volume restaurants, so what I build solves real business problems.</p>
-    <div class="btns">
-      <a class="btn primary" href="#projects">View projects</a>
-      <a class="btn" href="resume.pdf" download>⬇ Download resume</a>
-      <a class="btn" href="https://github.com/sivakowshik" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/siva-kowshik-sripathi-panditharadyula-241713150" target="_blank" rel="noopener">LinkedIn</a>
+<header class="hero">
+  <div class="bg"></div><div class="orb a"></div><div class="orb b"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill fade-up"><span class="dot"></span>Open to AI engineering roles and internships · Available immediately</span>
+      <h1 class="fade-up" style="--d:.08s">Siva Kowshik<span class="last">Sripathi Panditharadyula</span></h1>
+      <div class="role grad-text fade-up" style="--d:.16s">AI Engineer · Azure OpenAI · RAG · Agents · Python</div>
+      <p class="lead fade-up" style="--d:.24s">I build practical AI on Azure: retrieval-augmented chatbots, tool-calling agents and Python back ends.
+      About four years running high-volume restaurants means I build for real business problems like rostering, labour cost and day-to-day operations.</p>
+      <div class="btns fade-up" style="--d:.32s">
+        <a class="btn primary" href="#projects">View projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="resume.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>Resume</a>
+        <a class="btn" href="https://github.com/sivakowshik" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/siva-kowshik-sripathi-panditharadyula-241713150" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><path d="M7.5 10v7M7.5 7v.01M11.5 17v-4a2.5 2.5 0 0 1 5 0v4M11.5 10v7"/></svg>LinkedIn</a>
+      </div>
+      <div class="facts fade-up" style="--d:.4s">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Melbourne, VIC, Australia</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg>Masters, BIS (Software Development)</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 12.7L7 22l5-3 5 3-1.2-9.3"/></svg>AZ-900 · AI-900 · Databricks</span>
+      </div>
     </div>
-    <div class="loc">📍 Melbourne, VIC, Australia</div>
+    <div class="avatar-wrap fade-up" style="--d:.2s">
+      <div class="avatar-ring"></div>
+      <!-- Profile photo: add photo.jpg next to index.html and it covers these initials automatically -->
+      <div class="avatar" role="img" aria-label="Siva Kowshik Sripathi Panditharadyula"><span class="initials grad-text">SK</span></div>
+      <div class="float-chip c1"><i></i>Azure OpenAI · RAG</div>
+      <div class="float-chip c2"><i></i>AI-103 in progress</div>
+    </div>
   </div>
 </header>
 
-<section id="about">
+<section id="about" class="alt">
   <div class="wrap">
-    <div class="eyebrow">About</div>
-    <h2>Engineer, operator, founder</h2>
+    <div class="sec-head reveal"><span class="eyebrow">About</span><h2>Engineer, operator, founder</h2></div>
     <div class="about">
-      <div>
-        <p>I'm an <strong>AI engineer</strong> working with <strong>Azure OpenAI, Microsoft Foundry, Azure AI Search, Python and Databricks / Delta Lake</strong>. I build RAG pipelines that ground LLM answers in real documents, and agentic workflows that connect models to tools and APIs.</p>
-        <p>My software foundation comes from <strong>Infosys</strong>, where I worked as a Systems Engineer. After that I spent about four years as a <strong>Business Manager at Grill'd and Mad Mex</strong>, leading teams of 15+ and handling rostering, labour cost and inventory in high-volume restaurants.</p>
-        <p>That mix is why I founded <strong>Australian Vision AI</strong>, which builds AI rostering and operations tools for hospitality. I know the problems first-hand, and I can build the software that fixes them.</p>
+      <div class="reveal">
+        <p>I'm an <strong>AI engineer in Melbourne</strong> building Azure AI solutions in Python: <strong>RAG with Azure AI Search and Azure OpenAI</strong>, <strong>agents with Microsoft Foundry</strong>, and <strong>Databricks / Delta Lake</strong> pipelines.</p>
+        <p>My software foundation comes from <strong>Infosys</strong>, where I was a Systems Engineer. I then spent about four years as a <strong>Business Manager at Grill'd and Mad Mex</strong>, leading teams of 15+ across rostering, labour cost and inventory in high-volume restaurants.</p>
+        <p>That mix led me to found <strong>Australian Vision AI</strong>, a startup building AI rostering and operations tools for hospitality. I know the problems first-hand, and I build the software that fixes them.</p>
       </div>
       <div class="stats">
-        <div class="stat"><b>15+</b><span>team members led as Business Manager</span></div>
-        <div class="stat"><b>~4 yrs</b><span>running high-volume restaurants</span></div>
-        <div class="stat"><b>3</b><span>certifications, AI-103 in progress</span></div>
-        <div class="stat"><b>MBIS</b><span>Software Development, Torrens University</span></div>
+        <div class="stat reveal"><b class="grad-text">15+</b><span>team members led as Business Manager</span></div>
+        <div class="stat reveal"><b class="grad-text">~4 yrs</b><span>running high-volume restaurants</span></div>
+        <div class="stat reveal"><b class="grad-text">3</b><span>certifications, AI-103 in progress</span></div>
+        <div class="stat reveal"><b class="grad-text">3</b><span>portfolio projects in Python</span></div>
       </div>
     </div>
   </div>
@@ -165,138 +78,89 @@
 
 <section id="skills">
   <div class="wrap">
-    <div class="eyebrow">Skills</div>
-    <h2>What I work with</h2>
-    <div class="skills">
-      <div class="skill"><h3>☁️ Azure AI</h3><div class="tags"><span class="tag">Azure OpenAI</span><span class="tag">Microsoft Foundry</span><span class="tag">Azure AI Search</span><span class="tag">Vector / hybrid search</span><span class="tag">Azure Functions</span><span class="tag">Cosmos DB</span><span class="tag">Blob Storage</span></div></div>
-      <div class="skill"><h3>🧠 AI / LLM</h3><div class="tags"><span class="tag">RAG</span><span class="tag">Agentic workflows</span><span class="tag">LLM integration</span><span class="tag">Prompt engineering</span><span class="tag">LangChain</span><span class="tag">Semantic Kernel</span></div></div>
-      <div class="skill"><h3>🐍 Back end</h3><div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span><span class="tag">SQL</span><span class="tag">Microservices</span></div></div>
-      <div class="skill"><h3>📊 Data</h3><div class="tags"><span class="tag">Databricks Lakehouse</span><span class="tag">Delta Lake</span><span class="tag">PySpark</span><span class="tag">ETL / ELT</span></div></div>
-    </div>
+    <div class="sec-head reveal"><span class="eyebrow">Skills</span><h2>What I work with</h2>
+    <p>Azure AI services and Python, from retrieval and agents through to data pipelines.</p></div>
+    <div class="skills"><div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/></svg></div><h3>Languages</h3><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">REST APIs</span><span class="tag">PySpark</span></div></div><div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></div><h3>AI / ML</h3><div class="tags"><span class="tag">RAG</span><span class="tag">Agentic workflows</span><span class="tag">LLM integration</span><span class="tag">Prompt engineering</span><span class="tag">LangChain</span><span class="tag">Semantic Kernel</span></div></div><div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a4.5 4.5 0 0 0 .6-8.96A6 6 0 0 0 6.1 10.2 4 4 0 0 0 7 18z"/></svg></div><h3>Azure</h3><div class="tags"><span class="tag">Azure OpenAI</span><span class="tag">Microsoft Foundry</span><span class="tag">Azure AI Search (vector / hybrid)</span><span class="tag">Azure Functions</span><span class="tag">Cosmos DB</span><span class="tag">Blob Storage</span></div></div><div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div><h3>Data</h3><div class="tags"><span class="tag">Databricks Lakehouse</span><span class="tag">Delta Lake</span><span class="tag">ETL / ELT</span></div></div><div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div><h3>Practices</h3><div class="tags"><span class="tag">Production Python backends</span><span class="tag">Microservices</span><span class="tag">Workflow optimisation</span></div></div><div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5M2 17l10 5 10-5"/></svg></div><h3>Used in my projects</h3><div class="tags"><span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">Jinja2</span><span class="tag">Tool calling</span><span class="tag">pytest</span></div></div></div>
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="alt">
   <div class="wrap">
-    <div class="eyebrow">Projects</div>
-    <h2>Things I've built</h2>
-    <div class="projects">
-      <article class="card">
-        <span class="badge wip">In development</span>
-        <div class="icon">🗓️</div>
-        <h3>Hospitality Roster App</h3>
-        <p>A Flask web app for weekly restaurant rosters that stops the rostering mistakes I saw as a manager.</p>
-        <ul>
-          <li>Manager login and crew list with add-person form</li>
-          <li>Weekly grid with open / lunch / close slots</li>
-          <li>Close-shift rule: refuses staff who can't close</li>
-          <li>Next: floor assignment and a shift-swap rule</li>
-        </ul>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Jinja2</span></div>
-        <div class="links"><a href="https://github.com/sivakowshik/hospitality-roster-app" target="_blank" rel="noopener">Code →</a></div>
-      </article>
-      <article class="card">
-        <div class="icon">💬</div>
-        <h3>Restaurant Policy RAG Chatbot</h3>
-        <p>Ask restaurant policy questions in plain English and get short answers with citations to the exact policy section.</p>
-        <ul>
-          <li>Heading-aware chunking and embeddings</li>
-          <li>Hybrid keyword + vector retrieval</li>
-          <li>Grounded answers with [n] citations</li>
-          <li>FastAPI endpoint and CLI, offline tests</li>
-        </ul>
-        <div class="tags"><span class="tag">Azure OpenAI</span><span class="tag">Azure AI Search</span><span class="tag">FastAPI</span><span class="tag">Python</span></div>
-        <div class="links"><a href="https://github.com/sivakowshik/rag-policy-chatbot" target="_blank" rel="noopener">Code →</a></div>
-      </article>
-      <article class="card">
-        <span class="badge soon">Coming soon</span>
-        <div class="icon">🤖</div>
-        <h3>Microsoft Foundry Agent Demo</h3>
-        <p>An agent built on Microsoft Foundry Agent Service that uses tools to answer and act on hospitality operations questions. Built alongside my AI-103 preparation.</p>
-        <div class="tags"><span class="tag">Microsoft Foundry</span><span class="tag">Agents</span><span class="tag">Tool calling</span><span class="tag">Python</span></div>
-      </article>
-      <article class="card">
-        <span class="badge venture">Founder</span>
-        <div class="icon">🚀</div>
-        <h3>Australian Vision AI</h3>
-        <p>My startup building AI rostering and operations tools for hospitality businesses, bringing together restaurant management experience and Azure AI engineering.</p>
-        <div class="tags"><span class="tag">AI rostering</span><span class="tag">Hospitality ops</span><span class="tag">Azure AI</span></div>
-      </article>
-    </div>
+    <div class="sec-head reveal"><span class="eyebrow">Projects</span><h2>Things I've built</h2>
+    <p>Each project solves a problem I saw running restaurants. Open a case study for the architecture, stack and how to run it.</p></div>
+    <div class="projects"><article class="card reveal">
+  <div class="cover"><svg viewBox="0 0 240 110" aria-hidden="true"><rect x="10" y="14" width="70" height="84" rx="8" fill="#10223f" stroke="#2a416b"/><rect x="20" y="28" width="50" height="5" rx="2.5" fill="#4cc9f0" opacity=".8"/><rect x="20" y="42" width="40" height="4" rx="2" fill="#2a416b"/><rect x="20" y="52" width="46" height="4" rx="2" fill="#2a416b"/><rect x="20" y="62" width="34" height="4" rx="2" fill="#2a416b"/><rect x="20" y="76" width="44" height="4" rx="2" fill="#2a416b"/><path d="M88 56h28" stroke="#4cc9f0" stroke-width="2" stroke-dasharray="4 4"/><rect x="122" y="22" width="108" height="30" rx="15" fill="#1a1f4a" stroke="#6a5ae0"/><text x="176" y="41" font-size="11" fill="#e3ddff" text-anchor="middle" font-family="sans-serif">Who can close?</text><rect x="122" y="60" width="108" height="34" rx="12" fill="#0f2a3a" stroke="#2b6f86"/><text x="176" y="76" font-size="10" fill="#d6f3fb" text-anchor="middle" font-family="sans-serif">Close-trained staff</text><text x="176" y="88" font-size="10" fill="#4cc9f0" text-anchor="middle" font-family="sans-serif">only [1]</text></svg><span class="badge live">Live on GitHub</span></div>
+  <div class="body">
+    <h3>Restaurant Policy RAG Chatbot</h3>
+    <p>Ask restaurant policy questions in plain English and get short answers with citations to the exact policy section.</p>
+    <ul><li>Heading-aware chunking + Azure OpenAI embeddings</li><li>Hybrid keyword + vector search in Azure AI Search</li><li>Grounded answers with [n] citations</li><li>CLI, FastAPI endpoint and offline tests</li></ul>
+    <div class="tags"><span class="tag">Azure OpenAI</span><span class="tag">Azure AI Search</span><span class="tag">FastAPI</span><span class="tag">Python</span></div>
+    <div class="links"><a href="https://github.com/sivakowshik/rag-policy-chatbot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Code</a><a class="more" href="projects/rag-policy-chatbot.html">Case study →</a></div>
+  </div>
+</article><article class="card reveal">
+  <div class="cover"><svg viewBox="0 0 240 110" aria-hidden="true"><text x="52" y="18" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">Mon</text><text x="78" y="18" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">Tue</text><text x="104" y="18" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">Wed</text><text x="130" y="18" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">Thu</text><text x="156" y="18" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">Fri</text><text x="182" y="18" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">Sat</text><text x="208" y="18" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">Sun</text><text x="22" y="40" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">open</text><text x="22" y="66" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">lunch</text><text x="22" y="92" font-size="9" fill="#7086a8" text-anchor="middle" font-family="sans-serif">close</text><rect x="41" y="28" width="22" height="18" rx="4" fill="#10223f"/><rect x="67" y="28" width="22" height="18" rx="4" fill="#123526"/><rect x="93" y="28" width="22" height="18" rx="4" fill="#123526"/><rect x="119" y="28" width="22" height="18" rx="4" fill="#10223f"/><rect x="145" y="28" width="22" height="18" rx="4" fill="#123526"/><rect x="171" y="28" width="22" height="18" rx="4" fill="#123526"/><rect x="197" y="28" width="22" height="18" rx="4" fill="#10223f"/><rect x="41" y="54" width="22" height="18" rx="4" fill="#123526"/><rect x="67" y="54" width="22" height="18" rx="4" fill="#123526"/><rect x="93" y="54" width="22" height="18" rx="4" fill="#10223f"/><rect x="119" y="54" width="22" height="18" rx="4" fill="#123526"/><rect x="145" y="54" width="22" height="18" rx="4" fill="#123526"/><rect x="171" y="54" width="22" height="18" rx="4" fill="#10223f"/><rect x="197" y="54" width="22" height="18" rx="4" fill="#123526"/><rect x="41" y="80" width="22" height="18" rx="4" fill="#123526"/><rect x="67" y="80" width="22" height="18" rx="4" fill="#10223f"/><rect x="93" y="80" width="22" height="18" rx="4" fill="#123526"/><rect x="119" y="80" width="22" height="18" rx="4" fill="#123526"/><rect x="145" y="80" width="22" height="18" rx="4" fill="#10223f"/><rect x="171" y="80" width="22" height="18" rx="4" fill="#3a2412"/><rect x="197" y="80" width="22" height="18" rx="4" fill="#123526"/><text x="173" y="94" font-size="11" fill="#ffb547" text-anchor="middle" font-family="sans-serif" font-weight="700">✕</text><rect x="150" y="98" width="88" height="0" /></svg><span class="badge soon">Repo coming soon</span></div>
+  <div class="body">
+    <h3>Hospitality Roster App</h3>
+    <p>A Flask web app for weekly restaurant rosters that refuses the rostering mistakes I saw as a manager.</p>
+    <ul><li>Manager login and crew list with add-person form</li><li>Week grid with open / lunch / close slots</li><li>Close-check rule refuses staff who can&#x27;t close</li><li>Next: floor assignment and a shift-swap rule</li></ul>
+    <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Jinja2</span></div>
+    <div class="links"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repo coming soon</span><a class="more" href="projects/hospitality-roster-app.html">Case study →</a></div>
+  </div>
+</article><article class="card reveal">
+  <div class="cover"><svg viewBox="0 0 240 110" aria-hidden="true"><circle cx="120" cy="55" r="26" fill="#1a1f4a" stroke="#6a5ae0"/><text x="120" y="60" font-size="13" fill="#e3ddff" text-anchor="middle" font-family="sans-serif" font-weight="700">LLM</text><path d="M120 55 L40 22" stroke="#4cc9f0" stroke-width="1.4" stroke-dasharray="3 4" opacity=".8"/><rect x="8" y="11" width="64" height="22" rx="11" fill="#0f2a3a" stroke="#2b6f86"/><text x="40" y="26" font-size="9" fill="#d6f3fb" text-anchor="middle" font-family="monospace">find_cover</text><path d="M120 55 L200 22" stroke="#4cc9f0" stroke-width="1.4" stroke-dasharray="3 4" opacity=".8"/><rect x="168" y="11" width="64" height="22" rx="11" fill="#0f2a3a" stroke="#2b6f86"/><text x="200" y="26" font-size="9" fill="#d6f3fb" text-anchor="middle" font-family="monospace">get_roster</text><path d="M120 55 L40 90" stroke="#4cc9f0" stroke-width="1.4" stroke-dasharray="3 4" opacity=".8"/><rect x="8" y="79" width="64" height="22" rx="11" fill="#0f2a3a" stroke="#2b6f86"/><text x="40" y="94" font-size="9" fill="#d6f3fb" text-anchor="middle" font-family="monospace">labour_cost</text><path d="M120 55 L200 90" stroke="#4cc9f0" stroke-width="1.4" stroke-dasharray="3 4" opacity=".8"/><rect x="168" y="79" width="64" height="22" rx="11" fill="#0f2a3a" stroke="#2b6f86"/><text x="200" y="94" font-size="9" fill="#d6f3fb" text-anchor="middle" font-family="monospace">staff_hours</text><circle cx="120" cy="55" r="26" fill="#1a1f4a" stroke="#6a5ae0"/><text x="120" y="60" font-size="13" fill="#e3ddff" text-anchor="middle" font-family="sans-serif" font-weight="700">LLM</text></svg><span class="badge demo">Demo · sample data</span></div>
+  <div class="body">
+    <h3>Foundry Shift Assistant</h3>
+    <p>A tool-calling AI agent that answers a manager&#x27;s rostering questions: who can cover a close, labour-cost estimates and hours left.</p>
+    <ul><li>Azure OpenAI tool calling (Microsoft Foundry deployment)</li><li>5 Python tools: rules and maths stay in code</li><li>Same close-trained rule as the roster app</li><li>15 offline tests with a mocked LLM</li></ul>
+    <div class="tags"><span class="tag">Azure OpenAI</span><span class="tag">Microsoft Foundry</span><span class="tag">Agents</span><span class="tag">Tool calling</span><span class="tag">Python</span></div>
+    <div class="links"><a href="https://github.com/sivakowshik/foundry-shift-assistant" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Code</a><a class="more" href="projects/foundry-shift-assistant.html">Case study →</a></div>
+  </div>
+</article></div>
+    <div class="venture reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z"/><path d="M12 15l-3-3a22 22 0 0 1 2-4A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></svg></div><div><h3>Australian Vision AI · Founder</h3>
+    <p>Startup building AI rostering and operations tools for hospitality, drawing directly on my restaurant management experience.</p></div></div>
   </div>
 </section>
 
 <section id="experience">
   <div class="wrap">
-    <div class="eyebrow">Experience &amp; Education</div>
-    <h2>Where I've been</h2>
-    <div class="timeline">
-      <div class="item">
-        <div class="when">Current</div>
-        <h3>Founder &amp; AI Engineer</h3>
-        <div class="org">Australian Vision AI · Melbourne</div>
-        <p>Building AI rostering and operations tools for hospitality, plus Azure AI solutions in Python: RAG with Azure AI Search and Azure OpenAI, agents with Microsoft Foundry, and Databricks / Delta Lake pipelines.</p>
-      </div>
-      <div class="item">
-        <div class="when">Oct 2022 – Jun 2026</div>
-        <h3>Business Manager</h3>
-        <div class="org">Grill'd · Melbourne</div>
-        <p>Ran real-time operations in a high-volume restaurant, led and cross-trained a team of 15+, and used rostering and inventory software to manage labour cost and inventory.</p>
-      </div>
-      <div class="item">
-        <div class="when">Dec 2021 – Oct 2022</div>
-        <h3>Business Manager</h3>
-        <div class="org">Mad Mex Fresh Mexican · Melbourne</div>
-        <p>Led store operations, scheduling, service standards and team performance in a high-volume restaurant.</p>
-      </div>
-      <div class="item edu">
-        <div class="when">2020 – 2022</div>
-        <h3>Masters, Business Information Systems (Software Development)</h3>
-        <div class="org">Torrens University Australia</div>
-      </div>
-      <div class="item">
-        <div class="when">2016 – 2017</div>
-        <h3>Systems Engineer</h3>
-        <div class="org">Infosys</div>
-        <p>Delivered and supported enterprise systems in a global IT services environment, working with cross-functional teams.</p>
-      </div>
-      <div class="item edu">
-        <div class="when">2012 – 2016</div>
-        <h3>BE, Electrical, Electronics and Communications Engineering</h3>
-        <div class="org">Sathyabama University</div>
-      </div>
-    </div>
+    <div class="sec-head reveal"><span class="eyebrow">Experience</span><h2>Where I've worked</h2>
+    <p>Software engineering, AI projects, and hands-on hospitality operations management.</p></div>
+    <div class="timeline"><div class="job  reveal"><div class="top"><h3>AI &amp; Software Engineer (Projects)</h3><span class="when">2026 – Present</span></div>
+<div class="org">Freelance / Independent · Melbourne, VIC</div><ul><li>Building full-stack Azure AI applications with Python backends, Azure AI Search, Azure OpenAI and LLM orchestration</li><li>Building RAG pipelines on Databricks and Delta Lake, combining structured context with vector indexing</li><li>Prototyping agentic workflows using REST APIs and microservice patterns</li><li>Studying agent building and orchestration with Microsoft Foundry Agent Service as part of AI-103 preparation</li></ul></div><div class="job founder reveal"><div class="top"><h3>Founder</h3><span class="when">Venture</span></div>
+<div class="org">Australian Vision AI</div><ul><li>Startup building AI rostering and operations tools for hospitality, drawing directly on my restaurant management experience</li></ul></div><div class="job  reveal"><div class="top"><h3>Business Manager</h3><span class="when">Oct 2022 – Jun 2026</span></div>
+<div class="org">Grill'd · Melbourne, VIC</div><ul><li>Managed real-time operations and resource allocation in a high-volume restaurant</li><li>Analysed peak demand to reduce service delays</li><li>Used automated rostering and inventory software to optimise labour cost and inventory turnover</li><li>Led and cross-trained a team of 15+ staff</li><li>Drove adoption of digital ordering and workforce platforms</li></ul></div><div class="job  reveal"><div class="top"><h3>Business Manager</h3><span class="when">Dec 2021 – Oct 2022</span></div>
+<div class="org">Mad Mex Fresh Mexican · Melbourne, VIC</div><ul><li>Led store operations in a high-volume restaurant</li><li>Managed scheduling</li><li>Maintained service standards</li><li>Managed team performance</li></ul></div><div class="job  reveal"><div class="top"><h3>Systems Engineer</h3><span class="when">May 2016 – Aug 2017</span></div>
+<div class="org">Infosys</div><ul><li>Delivered and supported enterprise systems in a global IT services environment</li><li>Collaborated with cross-functional teams on application and system delivery and operational reliability</li></ul></div></div>
   </div>
 </section>
 
-<section id="certifications">
+<section id="certifications" class="alt">
+  <div class="wrap two">
+    <div><div class="sec-head reveal" style="margin-bottom:24px"><span class="eyebrow">Education</span><h2>Study</h2></div><div class="edu reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></div><div><h3>Masters, Business Information Systems (Software Development)</h3><span>Torrens University Australia · 2020 – 2022</span></div></div><div class="edu reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></div><div><h3>BE, Electrical, Electronics and Communications Engineering</h3><span>Sathyabama University · 2012 – 2016</span></div></div></div>
+    <div><div class="sec-head reveal" style="margin-bottom:24px"><span class="eyebrow">Certifications</span><h2>Credentials</h2></div><div class="cert reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 12.7L7 22l5-3 5 3-1.2-9.3"/></svg></div><div><h3>Microsoft Azure Fundamentals</h3><span>AZ-900</span><br><span class="status">Certified</span></div></div><div class="cert reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 12.7L7 22l5-3 5 3-1.2-9.3"/></svg></div><div><h3>Microsoft Azure AI Fundamentals</h3><span>AI-900</span><br><span class="status">Certified</span></div></div><div class="cert reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 12.7L7 22l5-3 5 3-1.2-9.3"/></svg></div><div><h3>Databricks Fundamentals</h3><span>Databricks</span><br><span class="status">Certified</span></div></div><div class="cert progress reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg></div><div><h3>Azure AI Apps and Agents Developer Associate</h3><span>AI-103</span><br><span class="status">In progress, exam 15 Oct 2026</span></div></div></div>
+  </div>
+</section>
+
+<section id="contact">
   <div class="wrap">
-    <div class="eyebrow">Certifications</div>
-    <h2>Credentials</h2>
-    <div class="certs">
-      <div class="cert"><div class="ic">🏅</div><div><h3>Microsoft Azure Fundamentals</h3><span>AZ-900 · Certified</span></div></div>
-      <div class="cert"><div class="ic">🏅</div><div><h3>Microsoft Azure AI Fundamentals</h3><span>AI-900 · Certified</span></div></div>
-      <div class="cert"><div class="ic">🏅</div><div><h3>Databricks Fundamentals</h3><span>Certified</span></div></div>
-      <div class="cert progress"><div class="ic">⏳</div><div><h3>Azure AI Apps and Agents Developer Associate</h3><span>AI-103 · In progress</span></div></div>
+    <div class="contact-box reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's build something useful</h2>
+      <p>I'm looking for AI engineer, AI solutions and Python / Azure back-end roles and internships in Melbourne. I'm available immediately.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:kowsik.king451@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>kowsik.king451@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/siva-kowshik-sripathi-panditharadyula-241713150" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><path d="M7.5 10v7M7.5 7v.01M11.5 17v-4a2.5 2.5 0 0 1 5 0v4M11.5 10v7"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/sivakowshik" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+        <a class="btn" href="resume.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>Resume (PDF)</a>
+      </div>
     </div>
   </div>
 </section>
-
-<section id="contact" class="contact">
+<footer>
   <div class="wrap">
-    <div class="eyebrow">Contact</div>
-    <h2>Let's build something useful</h2>
-    <p>I'm looking for AI engineering, back-end (Python / Azure) and AI solutions roles and internships in Melbourne or remote. I'm available immediately.</p>
-    <div class="btns">
-      <a class="btn primary" href="mailto:kowsik.king451@gmail.com">✉ kowsik.king451@gmail.com</a>
-      <a class="btn" href="https://www.linkedin.com/in/siva-kowshik-sripathi-panditharadyula-241713150" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/sivakowshik" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="resume.pdf" download>⬇ Resume (PDF)</a>
-    </div>
+    <span>&copy; 2026 Siva Kowshik Sripathi Panditharadyula · Melbourne, Australia</span>
+    <span><a href="https://github.com/sivakowshik">GitHub</a> · <a href="https://www.linkedin.com/in/siva-kowshik-sripathi-panditharadyula-241713150">LinkedIn</a> · <a href="mailto:kowsik.king451@gmail.com">kowsik.king451@gmail.com</a></span>
   </div>
-</section>
-
-<footer>© 2026 Siva Kowshik Sripathi Panditharadyula · Melbourne, Australia</footer>
-
+</footer>
 </body>
 </html>
