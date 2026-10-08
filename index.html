@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siva Kowshik Sripathi Panditharadyula | AI Engineer</title>
+<meta name="description" content="Siva Kowshik Sripathi Panditharadyula, AI Engineer in Melbourne building with Azure OpenAI, RAG, agents and Python.">
+<style>
+  :root{
+    --bg:#0b1220; --bg2:#0f1a2e; --card:#131f36; --line:#22314f;
+    --text:#e6edf7; --muted:#9fb0c8; --accent:#4cc9f0; --accent2:#7b61ff; --ok:#3ddc97; --warn:#ffb547;
+    --radius:16px; --max:1100px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:800;letter-spacing:.5px;color:var(--text)}
+  .logo span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav ul{display:flex;gap:22px;list-style:none}
+  nav ul a{color:var(--muted);font-size:.93rem;font-weight:500}
+  nav ul a:hover{color:var(--text);text-decoration:none}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:110px 0 90px}
+  .hero::before{content:"";position:absolute;inset:-40% -10% auto auto;width:720px;height:720px;background:radial-gradient(circle,rgba(123,97,255,.35),transparent 65%);filter:blur(10px)}
+  .hero::after{content:"";position:absolute;left:-200px;bottom:-300px;width:640px;height:640px;background:radial-gradient(circle,rgba(76,201,240,.22),transparent 65%)}
+  .hero .wrap{position:relative;z-index:1}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.85rem;background:rgba(19,31,54,.6)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+  h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;margin:22px 0 14px;font-weight:800;letter-spacing:-.5px}
+  .role{font-size:clamp(1.1rem,2.3vw,1.45rem);font-weight:600;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{max-width:680px;color:var(--muted);font-size:1.08rem;margin:18px 0 32px}
+  .btns{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.97rem;border:1px solid var(--line);color:var(--text);background:var(--card);transition:transform .15s,border-color .15s}
+  .btn:hover{transform:translateY(-2px);border-color:var(--accent);text-decoration:none}
+  .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;color:#0b1220}
+  .loc{margin-top:28px;color:var(--muted);font-size:.92rem}
+
+  /* sections */
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  section:nth-of-type(even){background:var(--bg2)}
+  .eyebrow{color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase}
+  h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:6px 0 30px;font-weight:800;letter-spacing:-.3px}
+  .about{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .about p strong{color:var(--text)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .stat b{display:block;font-size:1.7rem;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{color:var(--muted);font-size:.9rem}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .skill h3{font-size:1rem;margin-bottom:12px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:.8rem;padding:4px 10px;border-radius:999px;background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.25);color:#bfe9f8}
+
+  /* projects */
+  .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:transform .2s,border-color .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);border-color:rgba(76,201,240,.5);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+  .card .icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:linear-gradient(135deg,rgba(76,201,240,.2),rgba(123,97,255,.25));margin-bottom:16px}
+  .card h3{font-size:1.15rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.95rem;margin-bottom:16px;flex:1}
+  .card ul{color:var(--muted);font-size:.9rem;margin:0 0 16px 18px}
+  .card .links{display:flex;gap:16px;margin-top:16px;font-weight:600;font-size:.92rem}
+  .badge{position:absolute;top:22px;right:22px;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px}
+  .badge.soon{background:rgba(255,181,71,.12);color:var(--warn);border:1px solid rgba(255,181,71,.35)}
+  .badge.wip{background:rgba(61,220,151,.1);color:var(--ok);border:1px solid rgba(61,220,151,.35)}
+  .badge.venture{background:rgba(123,97,255,.15);color:#c3b6ff;border:1px solid rgba(123,97,255,.4)}
+
+  /* timeline */
+  .timeline{position:relative;margin-left:10px;padding-left:34px;border-left:2px solid var(--line)}
+  .item{position:relative;margin-bottom:34px}
+  .item::before{content:"";position:absolute;left:-43px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+  .item.edu::before{border-color:var(--accent2)}
+  .item .when{color:var(--accent);font-size:.85rem;font-weight:700}
+  .item.edu .when{color:#b3a6ff}
+  .item h3{font-size:1.08rem;margin:2px 0}
+  .item .org{color:var(--text);opacity:.85;font-size:.95rem}
+  .item p{color:var(--muted);font-size:.93rem;margin-top:6px;max-width:760px}
+
+  /* certs */
+  .certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .cert{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;gap:14px;align-items:flex-start}
+  .cert .ic{font-size:1.5rem}
+  .cert h3{font-size:.98rem}
+  .cert span{color:var(--muted);font-size:.85rem}
+  .cert.progress{border-style:dashed;border-color:rgba(255,181,71,.5)}
+  .cert.progress span{color:var(--warn)}
+
+  /* contact */
+  .contact{text-align:center}
+  .contact p{color:var(--muted);max-width:620px;margin:0 auto 28px}
+  .contact .btns{justify-content:center}
+  footer{padding:30px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+
+  @media (max-width:820px){
+    nav ul{display:none}
+    .about{grid-template-columns:1fr}
+    .hero{padding:80px 0 60px}
+    .projects{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">SK<span>.ai</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="pill"><span class="dot"></span>Open to AI engineering roles and internships · Melbourne</span>
+    <h1>Siva Kowshik<br>Sripathi Panditharadyula</h1>
+    <div class="role">AI Engineer | Azure OpenAI · RAG · Agents · Python</div>
+    <p class="lead">I build practical AI on Azure: retrieval-augmented chatbots, agents and Python back ends, shaped by about four years running high-volume restaurants, so what I build solves real business problems.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="resume.pdf" download>⬇ Download resume</a>
+      <a class="btn" href="https://github.com/sivakowshik" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/siva-kowshik-sripathi-panditharadyula-241713150" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="loc">📍 Melbourne, VIC, Australia</div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Engineer, operator, founder</h2>
+    <div class="about">
+      <div>
+        <p>I'm an <strong>AI engineer</strong> working with <strong>Azure OpenAI, Microsoft Foundry, Azure AI Search, Python and Databricks / Delta Lake</strong>. I build RAG pipelines that ground LLM answers in real documents, and agentic workflows that connect models to tools and APIs.</p>
+        <p>My software foundation comes from <strong>Infosys</strong>, where I worked as a Systems Engineer. After that I spent about four years as a <strong>Business Manager at Grill'd and Mad Mex</strong>, leading teams of 15+ and handling rostering, labour cost and inventory in high-volume restaurants.</p>
+        <p>That mix is why I founded <strong>Australian Vision AI</strong>, which builds AI rostering and operations tools for hospitality. I know the problems first-hand, and I can build the software that fixes them.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>15+</b><span>team members led as Business Manager</span></div>
+        <div class="stat"><b>~4 yrs</b><span>running high-volume restaurants</span></div>
+        <div class="stat"><b>3</b><span>certifications, AI-103 in progress</span></div>
+        <div class="stat"><b>MBIS</b><span>Software Development, Torrens University</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Skills</div>
+    <h2>What I work with</h2>
+    <div class="skills">
+      <div class="skill"><h3>☁️ Azure AI</h3><div class="tags"><span class="tag">Azure OpenAI</span><span class="tag">Microsoft Foundry</span><span class="tag">Azure AI Search</span><span class="tag">Vector / hybrid search</span><span class="tag">Azure Functions</span><span class="tag">Cosmos DB</span><span class="tag">Blob Storage</span></div></div>
+      <div class="skill"><h3>🧠 AI / LLM</h3><div class="tags"><span class="tag">RAG</span><span class="tag">Agentic workflows</span><span class="tag">LLM integration</span><span class="tag">Prompt engineering</span><span class="tag">LangChain</span><span class="tag">Semantic Kernel</span></div></div>
+      <div class="skill"><h3>🐍 Back end</h3><div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span><span class="tag">SQL</span><span class="tag">Microservices</span></div></div>
+      <div class="skill"><h3>📊 Data</h3><div class="tags"><span class="tag">Databricks Lakehouse</span><span class="tag">Delta Lake</span><span class="tag">PySpark</span><span class="tag">ETL / ELT</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Projects</div>
+    <h2>Things I've built</h2>
+    <div class="projects">
+      <article class="card">
+        <span class="badge wip">In development</span>
+        <div class="icon">🗓️</div>
+        <h3>Hospitality Roster App</h3>
+        <p>A Flask web app for weekly restaurant rosters that stops the rostering mistakes I saw as a manager.</p>
+        <ul>
+          <li>Manager login and crew list with add-person form</li>
+          <li>Weekly grid with open / lunch / close slots</li>
+          <li>Close-shift rule: refuses staff who can't close</li>
+          <li>Next: floor assignment and a shift-swap rule</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Jinja2</span></div>
+        <div class="links"><a href="https://github.com/sivakowshik/hospitality-roster-app" target="_blank" rel="noopener">Code →</a></div>
+      </article>
+      <article class="card">
+        <div class="icon">💬</div>
+        <h3>Restaurant Policy RAG Chatbot</h3>
+        <p>Ask restaurant policy questions in plain English and get short answers with citations to the exact policy section.</p>
+        <ul>
+          <li>Heading-aware chunking and embeddings</li>
+          <li>Hybrid keyword + vector retrieval</li>
+          <li>Grounded answers with [n] citations</li>
+          <li>FastAPI endpoint and CLI, offline tests</li>
+        </ul>
+        <div class="tags"><span class="tag">Azure OpenAI</span><span class="tag">Azure AI Search</span><span class="tag">FastAPI</span><span class="tag">Python</span></div>
+        <div class="links"><a href="https://github.com/sivakowshik/rag-policy-chatbot" target="_blank" rel="noopener">Code →</a></div>
+      </article>
+      <article class="card">
+        <span class="badge soon">Coming soon</span>
+        <div class="icon">🤖</div>
+        <h3>Microsoft Foundry Agent Demo</h3>
+        <p>An agent built on Microsoft Foundry Agent Service that uses tools to answer and act on hospitality operations questions. Built alongside my AI-103 preparation.</p>
+        <div class="tags"><span class="tag">Microsoft Foundry</span><span class="tag">Agents</span><span class="tag">Tool calling</span><span class="tag">Python</span></div>
+      </article>
+      <article class="card">
+        <span class="badge venture">Founder</span>
+        <div class="icon">🚀</div>
+        <h3>Australian Vision AI</h3>
+        <p>My startup building AI rostering and operations tools for hospitality businesses, bringing together restaurant management experience and Azure AI engineering.</p>
+        <div class="tags"><span class="tag">AI rostering</span><span class="tag">Hospitality ops</span><span class="tag">Azure AI</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience &amp; Education</div>
+    <h2>Where I've been</h2>
+    <div class="timeline">
+      <div class="item">
+        <div class="when">Current</div>
+        <h3>Founder &amp; AI Engineer</h3>
+        <div class="org">Australian Vision AI · Melbourne</div>
+        <p>Building AI rostering and operations tools for hospitality, plus Azure AI solutions in Python: RAG with Azure AI Search and Azure OpenAI, agents with Microsoft Foundry, and Databricks / Delta Lake pipelines.</p>
+      </div>
+      <div class="item">
+        <div class="when">Oct 2022 – Jun 2026</div>
+        <h3>Business Manager</h3>
+        <div class="org">Grill'd · Melbourne</div>
+        <p>Ran real-time operations in a high-volume restaurant, led and cross-trained a team of 15+, and used rostering and inventory software to manage labour cost and inventory.</p>
+      </div>
+      <div class="item">
+        <div class="when">Dec 2021 – Oct 2022</div>
+        <h3>Business Manager</h3>
+        <div class="org">Mad Mex Fresh Mexican · Melbourne</div>
+        <p>Led store operations, scheduling, service standards and team performance in a high-volume restaurant.</p>
+      </div>
+      <div class="item edu">
+        <div class="when">2020 – 2022</div>
+        <h3>Masters, Business Information Systems (Software Development)</h3>
+        <div class="org">Torrens University Australia</div>
+      </div>
+      <div class="item">
+        <div class="when">2016 – 2017</div>
+        <h3>Systems Engineer</h3>
+        <div class="org">Infosys</div>
+        <p>Delivered and supported enterprise systems in a global IT services environment, working with cross-functional teams.</p>
+      </div>
+      <div class="item edu">
+        <div class="when">2012 – 2016</div>
+        <h3>BE, Electrical, Electronics and Communications Engineering</h3>
+        <div class="org">Sathyabama University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="eyebrow">Certifications</div>
+    <h2>Credentials</h2>
+    <div class="certs">
+      <div class="cert"><div class="ic">🏅</div><div><h3>Microsoft Azure Fundamentals</h3><span>AZ-900 · Certified</span></div></div>
+      <div class="cert"><div class="ic">🏅</div><div><h3>Microsoft Azure AI Fundamentals</h3><span>AI-900 · Certified</span></div></div>
+      <div class="cert"><div class="ic">🏅</div><div><h3>Databricks Fundamentals</h3><span>Certified</span></div></div>
+      <div class="cert progress"><div class="ic">⏳</div><div><h3>Azure AI Apps and Agents Developer Associate</h3><span>AI-103 · In progress</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's build something useful</h2>
+    <p>I'm looking for AI engineering, back-end (Python / Azure) and AI solutions roles and internships in Melbourne or remote. I'm available immediately.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:kowsik.king451@gmail.com">✉ kowsik.king451@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/siva-kowshik-sripathi-panditharadyula-241713150" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/sivakowshik" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="resume.pdf" download>⬇ Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Siva Kowshik Sripathi Panditharadyula · Melbourne, Australia</footer>
+
+</body>
+</html>
